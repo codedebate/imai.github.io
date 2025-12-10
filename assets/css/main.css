@@ -85,7 +85,27 @@ header {
 
 main { max-width:var(--max-width); margin:0 auto; padding:2.5rem 1.5rem 3.5rem; }
 
-.hero { display:grid; grid-template-columns:minmax(0,3fr) minmax(0,2.5fr); gap:2.5rem; align-items:center; margin-bottom:3rem; }
+.hero { margin-bottom:3rem; }
+.hero-content { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:2.5rem; align-items:center; }
+.hero-text { display:flex; flex-direction:column; justify-content:center; }
+.hero-image { display:flex; justify-content:left; align-items:left; }
+.hero-image img { width:100%; height:auto; max-width:500px; object-fit:contain; }
+
+@media (max-width:1200px) {
+  .hero-image img { max-width:400px; }
+}
+
+@media (max-width:900px) {
+  .hero-image img { max-width:350px; }
+}
+
+@media (max-width:640px) {
+  .hero-image img { max-width:350px; } 
+}
+
+@media (max-width:480px) {
+  .hero-image img { max-width:350px; } 
+}
 .hero-kicker { text-transform:uppercase; font-size:0.75rem; letter-spacing:0.18em; color:var(--color-accent); font-weight:600; margin-bottom:0.75rem; }
 .hero h1 { font-size:clamp(2rem,3vw + 1rem,3rem); line-height:1.2; margin-bottom:0.75rem; }
 .hero p { color:var(--color-muted); margin-bottom:1.2rem; max-width:32rem; }
@@ -137,6 +157,9 @@ footer { border-top:1px solid var(--color-border); padding:1.25rem 1.5rem 2rem; 
   .steps-container { flex-wrap:wrap; }
   .step-card { flex:0 1 calc(50% - 0.75rem); }
   .step-connector { display:none; }
+  .hero-content { grid-template-columns:1fr; }
+  .hero-image { order:2; }
+  .hero-text { order:1; }
 }
 
 @media (max-width:640px) {
