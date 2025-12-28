@@ -153,18 +153,6 @@ const getScrollY = () =>
     open(idx >= 0 ? idx : 0);
   }, true);
 
-  // Also intercept very early on pointerdown/touchstart to avoid some browsers navigating
-  const earlyPrevent = (e) => {
-    const anchor = e.target && (e.target.closest ? e.target.closest('a.gallery-item') : null);
-    if (!anchor) return;
-    const gallery = document.getElementById('fpna-gallery');
-    if (!gallery || !gallery.contains(anchor)) return;
-    if (e.metaKey || e.ctrlKey || e.shiftKey || ('button' in e && e.button !== 0)) return;
-    e.preventDefault();
-  };
-  document.addEventListener('pointerdown', earlyPrevent, true);
-  document.addEventListener('touchstart', earlyPrevent, { capture: true, passive: false });
-
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) close();
   });
